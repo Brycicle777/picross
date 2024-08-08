@@ -38,13 +38,13 @@ int main() {
 
 	for (int i = 0; i < length; i++) {
 		if (puzzle[i] == '1') {
-			byte |= (1 << (length - 1 - i));
+			byte |= (1 << (7 - (i % 8));
 		}
 		if ((i + 1) % 8 == 0) {
 			puzzle_bytes_written += fwrite(&byte, sizeof(byte), 1, file);
 			byte = 0;
 		}
-		if (i == length - 2) {
+		if (i == length - 1) {
 			puzzle_bytes_written += fwrite(&byte, sizeof(byte), 1, file);
 		}
 	}
